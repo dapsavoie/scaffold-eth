@@ -2,14 +2,19 @@ const { ethers } = require("hardhat");
 const { use, expect } = require("chai");
 const { solidity } = require("ethereum-waffle");
 
+
 use(solidity);
 
 describe("My Dapp", function () {
   let myContract;
 
-  describe("YourContract", function () {
+  before((done) => {
+    setTimeout(done, 2000);
+  });
+
+  describe("YourCollectible", function () {
     it("Should deploy YourContract", async function () {
-      const YourContract = await ethers.getContractFactory("YourContract");
+      const YourContract = await ethers.getContractFactory("YourCollectible");
 
       myContract = await YourContract.deploy();
     });
@@ -24,3 +29,61 @@ describe("My Dapp", function () {
     });
   });
 });
+
+    it('Is the contract ownable?', async function () {
+      // it should set the right owner 
+      const YourContract = await ethers.getContractFactory("YourCollectible");
+      myContract = await YourContract.deploy();
+      expect(await myContract.isOwnable)
+    });
+
+    it('Is the contract payable?', async function () {
+      // it should set the right owner 
+      const YourContract = await ethers.getContractFactory("YourCollectible");
+      myContract = await YourContract.deploy();
+      expect(await myContract.isPayable)
+    });
+    
+    // Test case
+    it('Checks token URI is greater then zero', async function () {
+      expect(await myContract.tokenURI.length > 0);
+    });
+
+        // is the counter working?
+    it('Checks Counter', async function () {
+      nftCount = await myContract.YourCollectible.Counters();
+      assert.equal(nftCount.toNumber(), 1)
+    });
+
+
+    // checks if the address has the correct syntax 
+    it('Checks Contract Address', async function () {
+      const address = await myContract.address;
+      var assert = require('assert')
+      assert.notEqual(address, 0x0);
+    });
+
+    it("has correct name", async () => {
+      const name = await myContract.name();
+      var assert = require('assert')
+      assert.equal(name, "YourCollectible");
+    });
+
+    it('Checks Contract Address is Not Empty', async function () {
+      const address = await myContract.address;
+      var assert = require('assert')
+      assert.notEqual(address, "");
+    });
+
+    it("Should set the right owner", async () => {
+      expect(await recipient).to.equal(await recipient.address);
+    });
+
+    it('should be able to update the uri', async function() {
+      await myContract.setTokenURI('foo')
+      assert.equal(await myContract.baseTokenURI(), 'foo')
+    })
+
+
+
+    

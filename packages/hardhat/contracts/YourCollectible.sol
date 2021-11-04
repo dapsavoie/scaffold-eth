@@ -31,4 +31,6 @@ contract YourCollectible is ERC721, Ownable {
 
       return id;
   }
+
+  
 }
