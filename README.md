@@ -1,6 +1,9 @@
 # 🏗 Scaffold-ETH - 🎟 Simple NFT Example
-
+--- my address: 0xeF7752d59490D4dd156dc60Afe5FA81cf8BFfc79
 > Build, mint, and send around your own ERC721!
+
+
+to import to metamask mobile you need to use mobile account and add contract address and token id
 
 # 🏃‍♀️ Quick Start
 Required: [Node](https://nodejs.org/dist/latest-v12.x/) plus [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable) and [Git](https://git-scm.com/downloads)
